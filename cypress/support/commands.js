@@ -55,3 +55,21 @@ Cypress.Commands.add('logoutOfSauceLabs', () => {
     cy.get('#logout_sidebar_link').click()
     cy.get('[data-test=login-button]').should('be.visible')
 })
+
+Cypress.Commands.add('registerToBrightshop', (firstname, lastname, email, password) => {
+    cy.get('#RegisterFirstName').type(firstname)
+    cy.get('#RegisterLastName').type(lastname)
+    cy.get('#RegisterEmail').type(email)
+    cy.get('#RegisterPassword').type(password)
+    cy.get('#RegisterRePassword').type(password)
+    cy.get('#RegisterButtonComplete').click({ force: true }) // Viewport can also be increased to show button
+})
+
+Cypress.Commands.add('registerToBrightshop', (firstname, lastname, email, password) => {
+    cy.get('#RegisterFirstName').type(firstname)
+    cy.get('#RegisterLastName').type(lastname)
+    cy.get('#RegisterEmail').type(email)
+    cy.get('#RegisterPassword').type(password)
+    cy.get('#RegisterRePassword').type(password)
+    cy.get('#RegisterButtonComplete').click({ force: true }) // Viewport can also be increased to show button
+})
