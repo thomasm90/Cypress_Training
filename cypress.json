@@ -1,0 +1,7 @@
+{
+    "supportFile": "cypress/support/index.js",
+    "screenshotsFolder": "./reports/screenshots",
+    "videosFolder": "./reports/videos",
+    "videoUploadOnPasses": true,
+    "chromeWebSecurity": false
+}

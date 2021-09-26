@@ -1,0 +1,22 @@
+{
+  "name": "cypress-training",
+  "version": "1.0.0",
+  "description": "Cypress training",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^8.4.1",
+    "eslint-plugin-cypress": "^2.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prettier:format": "prettier --config .prettierrc --write '**/*.js'",
+    "test": "cypress run -b chrome --headless",
+    "open": "cypress open",
+    "test:chrome": "cypress run -b chrome --headless",
+    "test:brightest": "npm run test -- --spec \"cypress/integration/training/brightest.spec.js\"",
+    "test:cv-tool": "npm run test -- --spec \"cypress/integration/training/cv-tool.spec.js\"",
+    "test:assignments": "npm run test -- --spec \"cypress/integration/training/assignments/**\""
+  },
+  "author": "Thomas",
+  "license": "ISC"
+}
