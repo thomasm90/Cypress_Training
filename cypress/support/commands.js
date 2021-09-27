@@ -65,11 +65,21 @@ Cypress.Commands.add('registerToBrightshop', (firstname, lastname, email, passwo
     cy.get('#RegisterButtonComplete').click({ force: true }) // Viewport can also be increased to show button
 })
 
-Cypress.Commands.add('registerToBrightshop', (firstname, lastname, email, password) => {
-    cy.get('#RegisterFirstName').type(firstname)
-    cy.get('#RegisterLastName').type(lastname)
-    cy.get('#RegisterEmail').type(email)
-    cy.get('#RegisterPassword').type(password)
-    cy.get('#RegisterRePassword').type(password)
-    cy.get('#RegisterButtonComplete').click({ force: true }) // Viewport can also be increased to show button
+Cypress.Commands.add('loginToBrightshop', (email, password) => {
+    cy.get('#SignInEmail').type(email)
+    cy.get('#SignInPassword').type(password)
+    cy.get('#SignInButtonComplete').click()
+})
+
+Cypress.Commands.add('loginToBrightshopWithRequest', (email, password) => {
+    cy.request({
+        url: "https://brightshopapi.herokuapp.com/api/login/",
+        method: 'POST',
+        form: true,
+        body: { "email": email, "password": password }
+    }).then((response) => {
+        let token = response.body.token
+        cy.setCookie('token', token)
+    })
+    cy.visit('https://brightshopapp.herokuapp.com/#/')
 })
